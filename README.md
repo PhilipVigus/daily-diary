@@ -132,3 +132,13 @@ CREATE TABLE entries(id SERIAL PRIMARY KEY, body VARCHAR(1000), title VARCHAR(15
 INSERT INTO entries (body, title, date) VALUES ('Today was amazing', 'A n amazing day', '2020-03-02');
 INSERT INTO entries (body, title, date) VALUES ('Today was okay', 'An okay day', '2020-03-01');
 ```
+
+## Implementation
+
+### First user story
+
+```
+As a user
+So that I can browse my previous entries
+I want to see a list of Diary Entry Titles
+```
