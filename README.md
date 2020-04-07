@@ -126,5 +126,9 @@ CREATE DATABASE "daily_diary";
 \dt
 
 # Create the first table
-CREATE TABLE entries(id SERIAL PRIMARY KEY, body VARCHAR(1000), title VARCHAR(150), date TIMESTAMP);
+CREATE TABLE entries(id SERIAL PRIMARY KEY, body VARCHAR(1000), title VARCHAR(150), date DATE);
+
+# Add some entries
+INSERT INTO entries (body, title, date) VALUES ('Today was amazing', 'A n amazing day', '2020-03-02');
+INSERT INTO entries (body, title, date) VALUES ('Today was okay', 'An okay day', '2020-03-01');
 ```
