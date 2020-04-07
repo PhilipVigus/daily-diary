@@ -87,3 +87,44 @@ mkdir views
 # add unit and feature tests to make sure that tests are wired up properly
 
 ```
+
+## Set up postgres
+
+```bash
+# Install it
+brew install postgresql
+
+# Set it to start every time you log in
+brew services start postgresql
+
+# Test it's installed - this starts the CLI
+psql postgres
+
+# Then run the following
+# Create a database with the same name as your username
+# this will automatically be connected to when you start up
+CREATE DATABASE "student";
+# list databases
+\l
+# quit
+\q
+```
+
+## Use psql to create and manipulate the database
+
+```bash
+# Start psql
+psql
+
+# Create a project database
+CREATE DATABASE "daily_diary";
+
+# Connect to it
+\c daily_diary
+
+# Make sure it has no tables yet
+\dt
+
+# Create the first table
+CREATE TABLE entries(id SERIAL PRIMARY KEY, body VARCHAR(1000), title VARCHAR(150), date TIMESTAMP);
+```
