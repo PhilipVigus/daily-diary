@@ -142,3 +142,6 @@ As a user
 So that I can browse my previous entries
 I want to see a list of Diary Entry Titles
 ```
+
+- Initial implementation was with hard-coded values
+- Refactor added PG gem, used to connect to DB set up at start from within Entry.all method

@@ -1,5 +1,8 @@
+require 'pg'
+
 class Entry
   def self.all_titles
-    ['First entry title', 'Second entry title']
+    conn = PG.connect(dbname: 'daily_diary')
+    conn.exec('SELECT * FROM entries;').map { |row| row['title'] }
   end
 end
