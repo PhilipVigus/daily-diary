@@ -20,9 +20,6 @@ bundle
 # Initialise rspec
 rspec --init
 
-# Create a lib folder
-mkdir lib
-
 # Create a rackup config file
 touch config.ru
 
@@ -67,5 +64,26 @@ class DailyDiary < Sinatra::Base
 
   run! if app_file == $0
 end
+
+```
+
+# initialise git
+git init
+
+# do the first commit
+git add .
+git commit -m 'First commit'
+
+## Setting up MVC
+
+```bash
+# create model and views folders
+mkdir lib
+mkdir views
+
+# add an index.erb view and move the "Hello world" string into it
+# change the '/' route to erb :index
+
+# add unit and feature tests to make sure that tests are wired up properly
 
 ```
