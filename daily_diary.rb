@@ -11,8 +11,13 @@ class DailyDiary < Sinatra::Base
     erb :entries
   end
 
-  get '/entry-form' do
+  get '/new-entry' do
     erb :entry_form
+  end
+
+  post '/entry' do
+    Entry.create(params[:title], params[:body])
+    redirect 'entries'
   end
 
   run! if app_file == $0
