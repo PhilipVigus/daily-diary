@@ -10,11 +10,13 @@ class DBConnection
     result
   end
 
+  # private method
   def self.connect
     database = ENV['ENVIRONMENT'] == 'test' ? 'daily_diary_test' : 'daily_diary'
     @conn = PG.connect(dbname: database)
   end
 
+  # private method
   def self.disconnect
     @conn.close
   end
