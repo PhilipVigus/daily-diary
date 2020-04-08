@@ -3,7 +3,7 @@ require_relative './lib/entry'
 
 class DailyDiary < Sinatra::Base
   get '/' do
-    erb :index
+    redirect '/entries'
   end
 
   get '/entries' do
