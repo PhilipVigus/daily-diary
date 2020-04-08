@@ -23,7 +23,7 @@ describe DBConnection do
   describe '#run_query' do
     it 'runs properly formed SQL queries on the opened connection' do
       DBConnection.connect
-      expect { DBConnection.run_query('SELECT * from entries;') }.not_to raise_error
+      expect(DBConnection.run_query('SELECT * from entries;').ntuples).to eq 0
     end
 
     context 'raising errors' do

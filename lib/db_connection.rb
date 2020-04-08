@@ -11,10 +11,12 @@ class DBConnection
   def self.run_query(query)
     raise 'unable to run query - not connected to DB' if @conn.nil?
     begin
-      @conn.exec(query)
+      result = @conn.exec(query)
     ensure
       disconnect
     end
+
+    result
   end
 
   def self.conn
