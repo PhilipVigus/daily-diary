@@ -19,9 +19,7 @@ task :create_databases do
 end
 
 task :clean_test_database do
-  puts 'Attempting to clean test database...'
   if database_exists?('daily_diary_test')
-    puts 'Cleaning database...'
     connection = PG.connect(dbname: 'daily_diary_test')
     connection.exec("TRUNCATE entries;")
   else

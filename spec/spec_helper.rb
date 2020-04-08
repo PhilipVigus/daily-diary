@@ -16,6 +16,7 @@
 
 require 'capybara'
 require 'capybara/rspec'
+require 'rake'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
@@ -23,6 +24,7 @@ require File.join(File.dirname(__FILE__), '..', 'daily_diary.rb')
 
 ENV['RACK_ENV'] = 'test'
 Capybara.app = DailyDiary
+Rake.application.load_rakefile
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -32,6 +34,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 RSpec.configure do |config|
+  config.before(:each) do
+    Rake::Task['clean_test_database'].execute
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
