@@ -4,7 +4,7 @@ require 'db_connection'
 class Entry
   attr_reader :title, :body, :date, :id
 
-  def initialize(title, body, date, id = 0)
+  def initialize(title, body, date = Date.now, id = 0)
     @title = title
     @body = body
     @date = date
