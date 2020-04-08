@@ -8,6 +8,7 @@ bundle init
 
 # Add the following gems to the Gemfile
 gem 'capybara'
+gem 'rake'
 gem 'rspec'
 gem 'rubocop'
 gem 'simplecov'
@@ -110,27 +111,11 @@ CREATE DATABASE "student";
 \q
 ```
 
-## Use psql to create and manipulate the database
+## Setup databases
 
 ```bash
-# Start psql
-psql
-
-# Create a project database
-CREATE DATABASE "daily_diary";
-
-# Connect to it
-\c daily_diary
-
-# Make sure it has no tables yet
-\dt
-
-# Create the first table
-CREATE TABLE entries(id SERIAL PRIMARY KEY, body VARCHAR(1000), title VARCHAR(150), date DATE);
-
-# Add some entries
-INSERT INTO entries (body, title, date) VALUES ('Today was amazing', 'A n amazing day', '2020-03-02');
-INSERT INTO entries (body, title, date) VALUES ('Today was okay', 'An okay day', '2020-03-01');
+# run the rakefile with the default task
+rake
 ```
 
 ## Implementation
