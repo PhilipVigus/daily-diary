@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative './lib/entry'
+require_relative './lib/db_connection'
 
 class DailyDiary < Sinatra::Base
   get '/' do
@@ -18,6 +19,11 @@ class DailyDiary < Sinatra::Base
   post '/entry' do
     Entry.create(params[:title], params[:body])
     redirect 'entries'
+  end
+
+  get '/entries/:id' do
+    @entry = Entry.find_by_id(params['id'])
+    erb :entry
   end
 
   run! if app_file == $0
