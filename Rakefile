@@ -21,7 +21,7 @@ end
 task :clean_test_database do
   if database_exists?('daily_diary_test')
     connection = PG.connect(dbname: 'daily_diary_test')
-    connection.exec('TRUNCATE entries;')
+    connection.exec('TRUNCATE entries, comments;')
     connection.close
   else
     puts 'Test database does not exist. Run rake create_databases to create it...'
