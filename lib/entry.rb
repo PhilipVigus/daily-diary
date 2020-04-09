@@ -26,6 +26,6 @@ class Entry
   end
 
   def self.create(title, body)
-    DBConnection.run_query("INSERT INTO entries (title, body, date) VALUES ('#{title}', '#{body}', NOW());")
+    DBConnection.run_query("INSERT INTO entries (title, body, date) VALUES ($$#{title}$$, $$#{body}$$, NOW());")
   end
 end
