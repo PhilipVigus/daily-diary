@@ -7,7 +7,7 @@ class DailyDiary < Sinatra::Base
   end
 
   get '/entries' do
-    @titles = Entry.all
+    @entries = Entry.all
     erb :entries
   end
 
