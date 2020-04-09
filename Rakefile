@@ -39,5 +39,6 @@ def create_database(database_name)
   connection.exec("CREATE DATABASE #{database_name};")
   connection = PG.connect(dbname: database_name)
   connection.exec('CREATE TABLE entries(id SERIAL PRIMARY KEY, body VARCHAR(1000), title VARCHAR(150), date TIMESTAMP);')
+  connection.exec('CREATE TABLE comments (id SERIAL PRIMARY KEY, comment VARCHAR(200), entry_id INTEGER REFERENCES entries(id));')
   connection.close
 end
