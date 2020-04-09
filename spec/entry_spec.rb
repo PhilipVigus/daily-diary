@@ -6,17 +6,17 @@ describe Entry do
     Entry.new('Title', 'Body', '2020-04-08 18:15:25.71574')
   end
 
-  describe '#all_titles' do
+  describe '#all' do
     it 'gives you a list of all diary entries with the first entry present' do
       Entry.create('A rubbish day', 'This was a rubbish day')
       Entry.create('A better day', 'This was a better day')
-      expect(Entry.all_titles[0].title).to eq('A rubbish day')
+      expect(Entry.all[0].title).to eq('A rubbish day')
     end
 
-    it 'gives you a list of all diary entries with the first second present' do
+    it 'gives you a list of all diary entries with the second present' do
       Entry.create('A rubbish day', 'This was a rubbish day')
       Entry.create('A better day', 'This was a better day')
-      expect(Entry.all_titles[1].title).to eq('A better day')
+      expect(Entry.all[1].title).to eq('A better day')
     end
   end
 

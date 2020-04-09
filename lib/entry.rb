@@ -1,5 +1,5 @@
 require 'pg'
-require 'db_connection'
+require_relative './db_connection'
 
 class Entry
   attr_reader :title, :body, :date, :id
@@ -12,6 +12,13 @@ class Entry
   end
 
   def self.all_titles
+    query_result = DBConnection.run_query('SELECT * FROM entries;')
+    query_result.map do |row|
+      Entry.new(row['title'], row['body'], row['date'], row['id'])
+    end
+  end
+
+  def self.all
     query_result = DBConnection.run_query('SELECT * FROM entries;')
     query_result.map do |row|
       Entry.new(row['title'], row['body'], row['date'], row['id'])
