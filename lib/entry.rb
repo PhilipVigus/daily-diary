@@ -2,13 +2,14 @@ require 'pg'
 require_relative './db_connection'
 
 class Entry
-  attr_reader :title, :body, :date, :id
+  attr_reader :title, :body, :date, :id, :comments
 
   def initialize(title, body, date = Date.now, id)
     @title = title
     @body = body
     @date = DateTime.parse(date).to_date
     @id = id.to_i
+    @comments = []
   end
 
   def self.all

@@ -1,0 +1,8 @@
+<h1>Add comment form</h1>
+<form method="post" action='/entries/<%= @entry_id %>/comment'>
+    <div>
+        <label for="comment">Comment</label>
+        <textarea rows="10" name="comment"></textarea>
+    </div>
+    <input type="submit" value="Add comment">
+</form>

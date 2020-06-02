@@ -23,6 +23,9 @@ describe Entry do
       expect(entry.body).to eq 'Today was an amazing day'
       expect(entry.date).to be_a Date
       expect(entry.id).to eq entry_in_db.first['id'].to_i
+      expect(entry.comments).to be_a Array
+      expect(entry.comments.length).to eq 1
+      expect(entry.comments[0]).to eq ['This is a comment']
     end
   end
 

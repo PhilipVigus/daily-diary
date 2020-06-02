@@ -1,3 +1,7 @@
 <%= @entry.title %>
 <hr>
 <%= @entry.body %>
+<hr>
+<form method="get" action="/entries/<%= @entry.id %>/new-comment">
+  <input type="submit" value="Add comment">
+</form>
